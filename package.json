@@ -5,18 +5,54 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:js": "next lint",
+    "test:unit": "jest --passWithNoTests",
+    "test:unit:update": "jest --passWithNoTests --updateSnapshot",
+    "type:check": "tsc",
+    "cypress": "cypress",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "sass": "^1.44.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.0",
+    "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.3",
     "@types/node": "16.11.12",
     "@types/react": "17.0.37",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "axios": "^0.24.0",
+    "babel-jest": "^27.4.2",
     "eslint": "8.4.1",
     "eslint-config-next": "12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.27.1",
+    "husky": "^7.0.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.3",
+    "jest-dom": "^4.0.0",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
     "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.{js,jsx,ts,tsx}": "eslint",
+    "*.{css,scss}": "stylelint"
   }
 }
