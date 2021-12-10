@@ -13,7 +13,7 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
 }
 
@@ -27,4 +27,25 @@ p {
 
 a {
   text-decoration: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 12px;
+
+  .column {
+    padding: 12px;
+    border: 1px solid #777;
+
+    @for $i from 1 through 12 {
+      &.size-#{$i} {
+        grid-column: span #{$i};
+
+        @media (max-width: 920px) {
+          grid-column: span 12;
+        }
+      }
+    }
+  }
 }
