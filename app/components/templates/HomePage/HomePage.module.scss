@@ -1,14 +1,14 @@
-@import "app.scss";
+@import 'app.scss';
 
 .content {
   grid-column: span 12;
   text-align: center;
 
-  @include breakpoint("md") {
+  @include breakpoint('md') {
     grid-column: 3 / 11;
   }
 
-  @include breakpoint("xl") {
+  @include breakpoint('xl') {
     grid-column: 4 / 10;
   }
 }
